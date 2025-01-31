@@ -1,3 +1,65 @@
-::root {
+:root {
   --color-primary: #50a060;
+  --color-primary-dark: #3f7a4c;
+  --color-primary-light: #79cc88;
+
+  --color-secondary: #a14f61;
+  --color-contrast: #614fa1;
+
+  --color-black: #010101;
+  --color-white: #ffffff;
+
+  --screen-xs: 480px; /* 320-480 */
+  --screen-sm: 640px; /* 481-640 */
+  --screen-md: 768px; /* 641-768 */
+  --screen-lg: 1024px; /* 769-1024 */
+  --screen-xl: 1280px; /* 1025-1280 */
+  --screen-xxl: 1440px; /* 1281-1440 */
+
+  /* font-size scaled dynamically from 0.8rem at 480px to 2rem at 1440px */
+  font-size: clamp(0.8rem, 0.2rem + 2vw, 2rem);
+}
+
+body {
+  line-height: 1;
+}
+
+main {
+  /* padding scaled dynamically from 0 rem at 480px to 3 rem at 1440px */
+  padding: clamp(0rem, -1.5rem + 5vw, 3rem);
+  margin-inline: auto;
+  max-width: calc(3rem * 2 + var(--screen-xxl));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
