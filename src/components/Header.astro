@@ -1,0 +1,64 @@
+---
+import LogoSmall from '@/assets/logo-small.svg';
+import Logo from '@/assets/logo.svg';
+import Logo2 from '@/assets/logo-2.svg';
+import Github from '@/assets/github.svg';
+import LinkedIn from '@/assets/linkedin.svg';
+---
+
+<header>
+  <nav>
+    <a href="/" class="logo" aria-label="Go to homepage">
+      <Logo />
+    </a>
+
+    <a
+      href="https://linkedin.com/in/simenforris"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Go to LinkedIn profile"
+    >
+      <LinkedIn />
+    </a>
+    <a
+      href="https://github.com/simenforris"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Go to GitHub profile"
+    >
+      <Github />
+    </a>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--clr-header);
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  nav {
+    max-width: var(--screen-xl);
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .logo svg {
+    height: 1.5rem;
+    width: 100%;
+  }
+
+  a:not(.logo) svg {
+    fill: var(--clr-text);
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+</style>

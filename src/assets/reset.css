@@ -74,6 +74,11 @@ p {
   text-wrap: pretty; /* Prevents orphans on lines */
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;

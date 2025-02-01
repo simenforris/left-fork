@@ -1,0 +1,10 @@
+---
+import Header from '@/components/Header.astro';
+import BaseLayout from './BaseLayout.astro';
+---
+
+<BaseLayout>
+  <slot name="head" slot="head" />
+  <Header />
+  <slot />
+</BaseLayout>
