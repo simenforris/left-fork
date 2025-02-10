@@ -1,7 +1,28 @@
-<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle style="fill: var(--color-primary, #50A060)" cx="35" cy="35" r="35"  />
-  <path style="fill: var(--color-white, #fff)" d="M37.916 48V22.8H41.732V44.58H54.152V48H37.916Z" />
-  <path style="stroke: var(--color-white, #fff)" d="M13.3016 27.6863C12.0737 46.9253 37.8633 38.0184 25.0242 23.6377"  stroke-width="3" stroke-linecap="round"/>
-  <path style="stroke: var(--color-white, #fff)" d="M23.1481 37.201L19.0891 25.4484"  stroke-width="3" stroke-linecap="round"/>
-  <path style="stroke: var(--color-white, #fff)" d="M21.5529 38.7086C21.5529 38.7086 21.7729 47.0037 24.3566 50.6556C26.4975 53.0254 30.2784 51.7196 30.5005 48.5337C30.2798 44.0656 25.3338 37.4028 25.3338 37.4028"  stroke-width="3" stroke-linecap="round"/>
+<svg
+  width="512"
+  height="512"
+  viewBox="0 0 70 70"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle fill="#50A060" cx="35" cy="35" r="35" />
+  <path fill="white" d="M37.916 48V22.8H41.732V44.58H54.152V48H37.916Z" />
+  <path
+    stroke="white"
+    d="M13.3016 27.6863C12.0737 46.9253 37.8633 38.0184 25.0242 23.6377"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    stroke="white"
+    d="M23.1481 37.201L19.0891 25.4484"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    stroke="white"
+    d="M21.5529 38.7086C21.5529 38.7086 21.7729 47.0037 24.3566 50.6556C26.4975 53.0254 30.2784 51.7196 30.5005 48.5337C30.2798 44.0656 25.3338 37.4028 25.3338 37.4028"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
 </svg>
