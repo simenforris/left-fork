@@ -1,9 +1,8 @@
 ---
-import LogoSmall from '@/assets/logo-small.svg';
 import Logo from '@/assets/logo.svg';
-import Logo2 from '@/assets/logo-2.svg';
 import Github from '@/assets/github.svg';
 import LinkedIn from '@/assets/linkedin.svg';
+import Submenu from './Submenu.astro';
 ---
 
 <header>
@@ -12,39 +11,30 @@ import LinkedIn from '@/assets/linkedin.svg';
       <Logo />
     </a>
 
-    <a
-      href="https://linkedin.com/in/simenforris"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Go to LinkedIn profile"
-    >
-      <LinkedIn />
-    </a>
-    <a
-      href="https://github.com/simenforris"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Go to GitHub profile"
-    >
-      <Github />
-    </a>
+    <Submenu />
   </nav>
 </header>
 
 <style>
   header {
+    --header-icon-size: 1.2rem;
     background-color: var(--clr-header);
     border-bottom: 1px solid var(--clr-border);
+    position: sticky;
+    top: 0;
   }
 
   nav {
+    --nav-padding: 0.5rem;
+    --logo-height: 1.5rem;
+
     max-width: var(--screen-xl);
     margin-inline: auto;
 
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: var(--nav-padding);
   }
 
   .logo {
@@ -52,13 +42,14 @@ import LinkedIn from '@/assets/linkedin.svg';
   }
 
   .logo svg {
-    height: 1.5rem;
+    height: var(--logo-height);
     width: 100%;
   }
 
-  a:not(.logo) svg {
+  a:not(.logo) svg,
+  .icon {
     fill: var(--clr-text);
-    width: 1.2rem;
-    height: 1.2rem;
+    width: var(--header-icon-size);
+    height: var(--header-icon-size);
   }
 </style>

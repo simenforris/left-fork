@@ -19,8 +19,11 @@
   --screen-xl: 1280px; /* 1025-1280 */
   --screen-xxl: 1440px; /* 1281-1440 */
 
-  /* font-size scaled dynamically from 0.8rem at 480px to 2rem at 1440px */
-  /* font-size: clamp(0.8rem, 0.2rem + 2vw, 2rem); */
+  --font-header: 'DM Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 
+  /* 'DM Sans', */ -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   /* font-size scaled dynamically from 1rem at 600px to 2rem at 1440px */
   font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem);
@@ -58,17 +61,18 @@
 
 body {
   line-height: 1;
-  font-family:
-    /* 'DM Sans', */ -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
 
   color: var(--clr-text);
   background-color: var(--clr-background);
 }
 
-main,
-header,
-footer {
+body > main {
+  max-width: var(--screen-xl);
+  margin: 0 auto;
+}
+
+body > :is(main, header, footer) {
   /* padding scaled dynamically from 0 rem at 480px to 3 rem at 1440px */
   padding-inline: clamp(0rem, -1.5rem + 5vw, 3rem);
 }
@@ -80,6 +84,7 @@ h4,
 h5,
 h6 {
   line-height: 1.2;
+  font-family: var(--font-header);
 }
 
 h1 {

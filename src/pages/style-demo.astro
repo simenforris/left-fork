@@ -4,40 +4,44 @@ import HeaderLayout from '@/layouts/HeaderLayout.astro';
 
 <HeaderLayout>
   <main>
-    <h1>Styling demo</h1>
+    <h1>Style demo</h1>
 
     <section>
-      <h2>These are the heading sizes</h2>
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
+      <h2>Heading sizes:</h2>
+
+      <div>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
     </section>
 
     <section>
-      <h2>Here is a preview of the color palette:</h2>
-      <div class="primary">
+      <h2>Color palette:</h2>
+      <span>Descriptions by ChatGPT</span>
+      <div class="color primary">
         <h3>primary</h3>
         <p>The core green to build your design around.</p>
       </div>
-      <div class="primary-dark">
+      <div class="color primary-dark">
         <h3>primary-dark</h3>
         <p>Use for shadows, text, or any element needing extra depth.</p>
       </div>
-      <div class="primary-light">
+      <div class="color primary-light">
         <h3>primary-light</h3>
         <p>Great for highlights, backgrounds, or softer UI elements.</p>
       </div>
-      <div class="secondary">
+      <div class="color secondary">
         <h3>secondary</h3>
         <p>
           Provides a warm contrast to green; good for attention-grabbing accents
           (buttons, calls to action).
         </p>
       </div>
-      <div class="contrast">
+      <div class="color contrast">
         <h3>contrast</h3>
         <p>
           A purple accent that stands out strongly while still harmonizing in a
@@ -49,31 +53,43 @@ import HeaderLayout from '@/layouts/HeaderLayout.astro';
 </HeaderLayout>
 
 <style>
-  section {
-    padding: 1rem;
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  div {
+  section {
+    padding: 1rem;
+    background-color: var(--clr-header);
+  }
+
+  section div {
+    padding: 0.5rem;
+    background-color: var(--clr-background);
+  }
+
+  .color {
     padding: 2rem 3rem;
   }
 
   .primary {
-    background-color: var(--color-primary);
+    --clr-background: var(--clr-primary);
   }
 
   .primary-dark {
-    background-color: var(--color-primary-dark);
+    --clr-background: var(--clr-primary-dark);
   }
 
   .primary-light {
-    background-color: var(--color-primary-light);
+    --clr-background: var(--clr-primary-light);
   }
 
   .secondary {
-    background-color: var(--color-secondary);
+    --clr-background: var(--clr-secondary);
   }
 
   .contrast {
-    background-color: var(--color-contrast);
+    --clr-background: var(--clr-contrast);
   }
 </style>
