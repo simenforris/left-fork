@@ -1,0 +1,8 @@
+:root {
+  --clr-primary: hsl(133, 32%, 47%);
+  --clr-primary-dark: hsl(133, 32%, 36%);
+  --clr-primary-light: hsl(133, 32%, 64%);
+
+  --clr-secondary: hsl(347, 34%, 47%);
+  --clr-contrast: hsl(253, 34%, 47%);
+}

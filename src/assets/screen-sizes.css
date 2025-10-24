@@ -1,0 +1,8 @@
+:root {
+  --screen-xs: 480px; /* 320-480 */
+  --screen-sm: 640px; /* 481-640 */
+  --screen-md: 768px; /* 641-768 */
+  --screen-lg: 1024px; /* 769-1024 */
+  --screen-xl: 1280px; /* 1025-1280 */
+  --screen-xxl: 1440px; /* 1281-1440 */
+}
