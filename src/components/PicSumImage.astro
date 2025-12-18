@@ -1,0 +1,65 @@
+---
+interface Props {
+  id: number;
+  alt?: string;
+  ratio?: number;
+  sizes?: string;
+}
+
+const WIDTHS = [400, 800, 1200, 1600, 1920, 2560] as const;
+
+const {
+  id,
+  alt,
+  ratio = 16 / 9,
+  sizes = '(max-width: 600px) 100vw, 600px',
+} = Astro.props as Props;
+
+const createSrc = (id: number, w: number, ratio: number) => {
+  const h = Math.round(w / ratio);
+  return {
+    src: `https://picsum.photos/id/${id}/${w}/${h}`,
+    width: w,
+    height: h,
+  };
+};
+
+const createSrcSet = (id: number, ratio: number) => {
+  const srcSet = WIDTHS.map((w) => {
+    const { src } = createSrc(id, w, ratio);
+
+    return `${src} ${w}w`;
+  });
+
+  return srcSet.join(', ');
+};
+
+const srcset = createSrcSet(id, ratio);
+const { src, width, height } = createSrc(id, WIDTHS.at(-1)!, ratio);
+---
+
+<figure style={{ '--ratio': ratio }}>
+  <picture>
+    <source {srcset} {sizes} />
+    <img {src} {alt} {width} {height} loading="lazy" />
+  </picture>
+</figure>
+
+<style>
+  figure {
+    max-width: 100%;
+    aspect-ratio: var(--ratio);
+    overflow: hidden;
+    background-color: var(--clr-bg-muted);
+  }
+
+  figure picture {
+    display: inline;
+  }
+
+  figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

@@ -4,6 +4,35 @@ import HeaderLayout from '@/layouts/HeaderLayout.astro';
 
 <HeaderLayout>
   <main>
-    <div>This page is still empty :)</div>
+    <h1>Look at some components!</h1>
+    <ul>
+      <li><a href="/fullscreen-image">Fullscreen Image</a></li>
+    </ul>
   </main>
 </HeaderLayout>
+
+<style>
+  main > * {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  main > * + * {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    width: fit-content;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--clr-primary);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.25rem;
+  }
+</style>

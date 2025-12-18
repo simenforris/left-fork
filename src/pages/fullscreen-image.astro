@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Vue_FullscreenImage from '@/components/fullscreen-image/FullscreenImage.vue';
+import Astro_FullScreenImage from '@/components/fullscreen-image/FullScreenImage.astro';
+import PicSumImage from '@/components/PicSumImage.astro';
+
+const dogId = 237;
+const dogAlt = 'A small black dog looking up at the camera';
+const mountainId = 866;
+const mountainAlt = 'Looking up at a mountain peak in a snowy landscape';
+const bridgeId = 545;
+const bridgeAlt = 'A dark cobblestone bridge at dusk, leading to a big city';
+---
+
+<script>
+  import FullscreenImage from '@/components/fullscreen-image/FullscreenImage';
+
+  FullscreenImage.define();
+</script>
+
+<BaseLayout>
+  <main>
+    <h1>Full Screen Image Demo</h1>
+
+    <div>
+      <h2>Web component</h2>
+      <fullscreen-image>
+        <PicSumImage id={bridgeId} alt={bridgeAlt} />
+        <div slot="dialog" class="content">
+          <PicSumImage id={bridgeId} alt={bridgeAlt} sizes="100vw" />
+        </div>
+      </fullscreen-image>
+    </div>
+
+    <div>
+      <h2>Astro component</h2>
+      <Astro_FullScreenImage>
+        <PicSumImage id={dogId} alt={dogAlt} />
+        <div slot="dialog" class="content">
+          <PicSumImage id={dogId} alt={dogAlt} sizes="100vw" />
+        </div>
+      </Astro_FullScreenImage>
+    </div>
+
+    <div>
+      <h2>Vue component</h2>
+      <Vue_FullscreenImage client:load>
+        <PicSumImage id={mountainId} alt={mountainAlt} />
+        <div slot="dialog" class="content">
+          <PicSumImage id={mountainId} alt={mountainAlt} sizes="100vw" />
+        </div>
+      </Vue_FullscreenImage>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  main > * {
+    max-width: 600px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  main > h1 {
+    text-align: center;
+  }
+
+  main > * + * {
+    margin-top: 1rem;
+  }
+
+  .content {
+    max-width: 908px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>

@@ -1,13 +1,18 @@
 ---
-import { icons, type FeatherIconNames } from 'feather-icons';
+import {
+  icons,
+  type FeatherAttributes,
+  type FeatherIconNames,
+} from 'feather-icons';
 
 type Props = {
   name: FeatherIconNames;
+  options?: Partial<FeatherAttributes>;
 };
 
-const { name } = Astro.props;
+const { name, options } = Astro.props;
 
-const icon = icons[name].toSvg();
+const icon = icons[name].toSvg(options);
 ---
 
-<Fragment set:html={icon} />
+<span aria-hidden="true" set:html={icon} />

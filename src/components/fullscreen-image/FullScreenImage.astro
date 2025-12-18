@@ -1,0 +1,79 @@
+---
+import Icon from '@/components/Icon.astro';
+import { icons } from 'feather-icons';
+
+interface Props {}
+
+// const id = Date.now().toString(36);
+
+// const dialogId = `dialog-${id}`;
+// const buttonId = `button-open-${id}`;
+// const wrapperId = `wrapper-${id}`;
+
+const iconOptions = {
+  width: '1em',
+  height: '1em',
+};
+---
+
+<div>
+  <div class="trigger-wrapper" id="wrapper">
+    <slot />
+    <button
+      id="button"
+      aria-controls="fs-dialog"
+      aria-haspopup="dialog"
+      aria-label="Open full screen image"
+    >
+      <Icon name="maximize-2" options={iconOptions} />
+    </button>
+  </div>
+
+  <dialog id="fs-dialog">
+    <form method="dialog">
+      <slot name="dialog" />
+      <button type="submit" aria-label="Close full screen image">
+        <Icon name="x" options={iconOptions} />
+      </button>
+    </form>
+  </dialog>
+</div>
+
+<script>
+  const dialog = document.getElementById(
+    'fs-dialog'
+  ) as HTMLDialogElement | null;
+  const button = document.getElementById('button') as HTMLButtonElement | null;
+  const wrapper = document.getElementById('wrapper') as HTMLDivElement | null;
+
+  const clickHandler = () => {
+    if (!dialog) return;
+
+    dialog.showModal();
+
+    const controller = new AbortController();
+
+    window.addEventListener(
+      'click',
+      (event) => {
+        if (!dialog) {
+          controller.abort();
+          return;
+        }
+
+        if (event.target === dialog) {
+          dialog.close();
+          controller.abort();
+        }
+      },
+      { signal: controller.signal }
+    );
+  };
+
+  if (button) button.onclick = clickHandler;
+  if (wrapper) wrapper.onclick = clickHandler;
+</script>
+
+<style>
+  @import './fullscreen-image.css';
+</style>

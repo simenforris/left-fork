@@ -1,0 +1,69 @@
+---
+type Props = {
+  name?: string;
+  initialValue?: boolean;
+};
+
+const { name, initialValue = false } = Astro.props;
+---
+
+<label>
+  <input type="checkbox" checked={initialValue} />
+  <slot />
+</label>
+
+<style>
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+
+    --thumb-width: 0.8rem;
+    --thumb-height: 0.8rem;
+    --track-padding: 0.1rem;
+    --track-width: calc(var(--thumb-width) * 2 + var(--track-padding) * 2);
+  }
+
+  input {
+    appearance: none;
+    cursor: inherit;
+    width: var(--track-width);
+    height: calc(var(--thumb-height) + var(--track-padding) * 2);
+    background-color: var(--clr-neutral-400);
+    border-radius: 100vw;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  input:focus {
+    outline-color: transparent;
+  }
+
+  input:focus-visible {
+    outline: 2px solid var(--clr-primary, --clr-green-500);
+    outline-offset: 2px;
+  }
+
+  input::before {
+    content: '';
+    display: block;
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    background-color: var(--clr-neutral-50);
+    border-radius: inherit;
+    position: absolute;
+    left: var(--track-padding);
+    top: var(--track-padding);
+
+    transition: transform 0.2s ease-in-out;
+  }
+
+  input:checked {
+    background-color: var(--clr-primary, --clr-green-500);
+  }
+
+  input:checked::before {
+    transform: translateX(100%);
+  }
+</style>
