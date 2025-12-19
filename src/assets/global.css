@@ -30,6 +30,7 @@ body > :is(header, footer) {
 .auto-stack > * {
   width: 100%;
   margin-inline: auto;
+  padding-inline: var(--stack-spacing-inline);
   max-width: min(
     calc(100% - 2 * var(--stack-spacing-inline)),
     var(--stack-max-width)
@@ -47,8 +48,16 @@ body > :is(header, footer) {
 }
 
 .auto-stack > .width-breakout > * {
-  max-width: var(--screen-xxl);
+  --stack-spacing-inline: 1rem;
+  --stack-max-width: var(--screen-xxl);
+
+  width: 100%;
   margin-inline: auto;
+  padding-inline: var(--stack-spacing-inline);
+  max-width: min(
+    calc(100% - 2 * var(--stack-spacing-inline)),
+    var(--stack-max-width)
+  );
 }
 
 .auto-stack > .width-md {

@@ -1,6 +1,12 @@
 ---
 import '@/assets/reset.css';
 import '@/assets/global.css';
+
+type Props = {
+  title?: string;
+};
+
+const { title = 'Left-fork' } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +25,7 @@ import '@/assets/global.css';
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <title>Left-fork</title>
+    <title>{title}</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"

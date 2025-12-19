@@ -1,0 +1,59 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  open?: boolean;
+}
+
+const { open = false } = Astro.props;
+---
+
+<details {open}>
+  <summary>
+    <slot name="summary" />
+    <Icon
+      name="chevron-left"
+      class="icon"
+      options={{ width: '1em', height: '1em' }}
+    />
+  </summary>
+
+  <div>
+    <slot name="details" />
+  </div>
+</details>
+
+<style>
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+    white-space: nowrap;
+  }
+
+  details {
+    background-color: var(--clr-bg-secondary);
+    border-radius: var(--border-radius);
+  }
+
+  summary,
+  div {
+    padding: 0.5rem;
+  }
+
+  summary :global(.icon) {
+    transition: transform 0.2s ease;
+    /* stroke-width: 3; */
+  }
+
+  details[open] summary {
+    border-bottom: 1px solid var(--clr-bg-muted);
+  }
+
+  details[open] summary :global(.icon) {
+    transform: rotate(-90deg);
+  }
+</style>

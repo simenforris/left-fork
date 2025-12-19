@@ -8,7 +8,8 @@ const { name, initialValue = false } = Astro.props;
 ---
 
 <label>
-  <input type="checkbox" checked={initialValue} />
+  <slot name="label-before" />
+  <input type="checkbox" {name} checked={initialValue} />
   <slot />
 </label>
 
@@ -18,7 +19,6 @@ const { name, initialValue = false } = Astro.props;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    position: relative;
 
     --thumb-width: 0.8rem;
     --thumb-height: 0.8rem;
@@ -27,6 +27,8 @@ const { name, initialValue = false } = Astro.props;
   }
 
   input {
+    position: relative;
+
     appearance: none;
     cursor: inherit;
     width: var(--track-width);

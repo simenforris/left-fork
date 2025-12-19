@@ -8,11 +8,12 @@ import {
 type Props = {
   name: FeatherIconNames;
   options?: Partial<FeatherAttributes>;
+  class?: string;
 };
 
-const { name, options } = Astro.props;
+const { name, options, class: className } = Astro.props;
 
 const icon = icons[name].toSvg(options);
 ---
 
-<span aria-hidden="true" set:html={icon} />
+<span aria-hidden="true" class={className} set:html={icon} />

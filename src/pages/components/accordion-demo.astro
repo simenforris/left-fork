@@ -1,0 +1,38 @@
+---
+import Accordion from '@/components/Accordion.astro';
+import HeaderLayout from '@/layouts/HeaderLayout.astro';
+---
+
+<HeaderLayout title="Accordion">
+  <main class="auto-stack">
+    <h1>Accordion Demo</h1>
+
+    <section>
+      <h2>Default closed</h2>
+      <Accordion>
+        <span slot="summary">What is Astro?</span>
+        <p slot="details">
+          Astro is a modern static site builder that leverages component-based
+          architecture to create fast, optimized websites with ease.
+        </p>
+      </Accordion>
+    </section>
+    <section>
+      <h2>Default open</h2>
+      <Accordion open>
+        <span slot="summary">How does the Accordion work?</span>
+        <p slot="details">
+          The Accordion component allows users to toggle the visibility of
+          content sections, providing a cleaner and more organized user
+          interface.
+        </p>
+      </Accordion>
+    </section>
+  </main>
+</HeaderLayout>
+
+<style>
+  main {
+    --stack-max-width: 600px;
+  }
+</style>

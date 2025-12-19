@@ -1,0 +1,29 @@
+---
+import HeaderLayout from '@/layouts/HeaderLayout.astro';
+import Toggle from '@/components/Toggle.astro';
+---
+
+<HeaderLayout title="Toggle">
+  <main class="auto-stack">
+    <h1>Toggle demo</h1>
+
+    <section>
+      <h2>Single Label</h2>
+      <Toggle name="feature-1">Some cool feature</Toggle>
+    </section>
+
+    <section>
+      <h2>Double Label</h2>
+      <Toggle name="feature-2">
+        <Fragment slot="label-before">Feature On</Fragment>
+        Feature off
+      </Toggle>
+    </section>
+  </main>
+</HeaderLayout>
+
+<style>
+  main {
+    --stack-max-width: 600px;
+  }
+</style>

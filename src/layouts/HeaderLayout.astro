@@ -1,9 +1,15 @@
 ---
 import PageHeader from '@/components/PageHeader.astro';
 import BaseLayout from './BaseLayout.astro';
+
+type Props = {
+  title?: string;
+};
+
+const { title } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout {title}>
   <slot name="head" slot="head" />
   <PageHeader />
   <slot />

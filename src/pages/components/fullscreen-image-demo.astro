@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
 import Vue_FullscreenImage from '@/components/fullscreen-image/FullscreenImage.vue';
 import Astro_FullScreenImage from '@/components/fullscreen-image/FullScreenImage.astro';
 import PicSumImage from '@/components/PicSumImage.astro';
+import HeaderLayout from '@/layouts/HeaderLayout.astro';
 
 const dogId = 237;
 const dogAlt = 'A small black dog looking up at the camera';
@@ -18,11 +18,11 @@ const bridgeAlt = 'A dark cobblestone bridge at dusk, leading to a big city';
   FullscreenImage.define();
 </script>
 
-<BaseLayout>
-  <main>
+<HeaderLayout title="Fullscreen Image">
+  <main class="auto-stack">
     <h1>Full Screen Image Demo</h1>
 
-    <div>
+    <section>
       <h2>Web component</h2>
       <fullscreen-image>
         <PicSumImage id={bridgeId} alt={bridgeAlt} />
@@ -30,9 +30,9 @@ const bridgeAlt = 'A dark cobblestone bridge at dusk, leading to a big city';
           <PicSumImage id={bridgeId} alt={bridgeAlt} sizes="100vw" />
         </div>
       </fullscreen-image>
-    </div>
+    </section>
 
-    <div>
+    <section>
       <h2>Astro component</h2>
       <Astro_FullScreenImage>
         <PicSumImage id={dogId} alt={dogAlt} />
@@ -40,33 +40,27 @@ const bridgeAlt = 'A dark cobblestone bridge at dusk, leading to a big city';
           <PicSumImage id={dogId} alt={dogAlt} sizes="100vw" />
         </div>
       </Astro_FullScreenImage>
-    </div>
+    </section>
 
-    <div>
+    <section>
       <h2>Vue component</h2>
-      <Vue_FullscreenImage client:load>
+      <Vue_FullscreenImage client:load class:list={['test']}>
         <PicSumImage id={mountainId} alt={mountainAlt} />
         <div slot="dialog" class="content">
           <PicSumImage id={mountainId} alt={mountainAlt} sizes="100vw" />
         </div>
       </Vue_FullscreenImage>
-    </div>
+    </section>
   </main>
-</BaseLayout>
+</HeaderLayout>
 
 <style>
-  main > * {
-    max-width: 600px;
-    width: 100%;
-    margin-inline: auto;
+  main {
+    --stack-max-width: 600px;
   }
 
   main > h1 {
     text-align: center;
-  }
-
-  main > * + * {
-    margin-top: 1rem;
   }
 
   .content {

@@ -1,0 +1,27 @@
+---
+import HeaderLayout from '@/layouts/HeaderLayout.astro';
+---
+
+<HeaderLayout title="Component Demo">
+  <main class="auto-stack">
+    <h1 class="width-large">Component Demo</h1>
+
+    <ul>
+      <li><a href="/components/fullscreen-image-demo">Fullscreen Image</a></li>
+      <li><a href="/components/toggle-demo">Toggle Demo</a></li>
+      <li><a href="/components/accordion-demo">Accordion Demo</a></li>
+    </ul>
+  </main>
+</HeaderLayout>
+
+<style>
+  li + li {
+    margin-top: 0.5rem;
+  }
+  a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--clr-primary);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.25rem;
+  }
+</style>
