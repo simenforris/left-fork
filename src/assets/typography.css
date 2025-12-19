@@ -5,7 +5,9 @@
     'Helvetica Neue', Arial, sans-serif;
 
   /* font-size scaled dynamically from 1rem at 600px to 2rem at 1440px */
-  font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+  /* font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem); */
+  /* font-size scaled dynamically from 1rem at 600px to 1.5rem at 1440px */
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 }
 
 h1,
