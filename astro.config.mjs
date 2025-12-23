@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify';
 import vue from '@astrojs/vue';
 import react from '@astrojs/react';
 
@@ -12,4 +13,5 @@ export default defineConfig({
   output: 'server',
 
   integrations: [vue(), react()],
+  adapter: netlify(),
 });
